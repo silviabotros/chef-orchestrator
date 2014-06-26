@@ -1,0 +1,19 @@
+{
+        "MySQLTopologyUser": "<%= node['orchestrator']['remote_user'] %>",
+        "MySQLTopologyPassword": "<%= node['orchestrator']['remote_pass'] %>",
+        "MySQLOrchestratorHost": "localhost",
+        "MySQLOrchestratorPort": 3306,
+        "MySQLOrchestratorDatabase": "orchestrator",
+        "MySQLOrchestratorUser": "<%= node['orchestrator']['orchestrator_db_user'] %>",
+        "MySQLOrchestratorPassword": "<%= node['orchestrator']['orchestrator_db_pass'] %>",
+        "SlaveLagQuery": "",
+        "DiscoverByShowSlaveHosts": <%= node['orchestrator']['discover_slave_hosts'] %>,
+        "InstancePollSeconds": <%=node['orchestrator']['poll_sec'] %>,
+        "UnseenInstanceForgetHours": <%= node['orchestrator']['forget_instances_hrs'] %>,
+        "ReasonableReplicationLagSeconds" : <%= node['orchestrator']['reasonable_repl'] %>,
+        "ReasonableMaintenanceReplicationLagSeconds" : <%= node['orchestrator']['maintenance_lag_secs'] %>,
+        "AuditPageSize": <%= node['orchestrator']['audit_page_size'] %>,
+        "SlaveStartPostWaitMilliseconds" : <%= node['orchestrator']['slave_start_post_wait'] %>,
+    "HTTPAuthUser": "<%=node['orchestrator']['http_auth_user'] %>",
+    "HTTPAuthPassword": "<%= node['orchestrator']['http_auth_pass'] %>"
+}
