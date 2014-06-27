@@ -1,7 +1,7 @@
 include_attribute 'percona'
 default['percona']['skip_configure'] = true
 default['percona']['skip_passwords'] = true
-default['orchestrator']['root_db_pass'] = 'fakerootpass'
+default['orchestrator']['root_db_pass'] = ''
 default['orchestrator']['remote_user'] = 'orchestrator'
 default['orchestrator']['remote_pass'] = 'fakepass'
 default['orchestrator']['orchestrator_db_user'] = 'orchestrator'

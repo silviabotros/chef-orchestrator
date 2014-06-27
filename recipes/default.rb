@@ -15,11 +15,21 @@ case node['platform']
   when "redhat", "centos", "fedora" 
     execute "install from rpm" do
       command "sudo rpm -i https://github.com/outbrain/orchestrator/releases/download/v1.0/orchestrator-1.0-1.x86_64.rpm"
+      not_if "rpm -qa | grep orchestrator-1.0-1"
     end
 end
 
+template "/etc/orchestrator.conf.json" do
+  source 'orchestrator.json.conf.erb'
+end
+
+file "/usr/local/orchestrator/conf/orchestrator.conf.json" do
+  action :delete
+end
+
 execute "start orchestrator" do
-  command "cd /usr/local/orchestrator && ./orchestrator http > /var/log/orchestrator.log 2>&1"
+  command "cd /usr/local/orchestrator && ./orchestrator http > /var/log/orchestrator.log 2>&1 &"
+  not_if "ps aux | grep orchestrator | grep -v grep"
 end
 
 
