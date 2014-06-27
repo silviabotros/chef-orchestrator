@@ -2,7 +2,7 @@
  This cookbook sets up and runs mysql-orchestror (https://github.com/outbrain/orchestrator/) which is a project by Outbrain. 
 *Presumptions*:
 - The backend mysql for orchestrator is going to run on the same server as orchestrator itself
-- That backend DB is going to use vanilla MySQL
+- That backend DB is going to use Percona MySQL which is setup using the chef-percona cookbook by Philiper (https://github.com/phlipper/chef-percona.git)
 - That you, the end user, own adding privileges for orchestrator to access your existing DB infrastructure 
 - That you wrap this cookbook to use the CLI and add your production databases for discovery
 
@@ -21,7 +21,7 @@ Tested with
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['chef-orchestrator']['bacon']</tt></td>
+    <td><tt>['orchestrator']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -30,14 +30,14 @@ Tested with
 
 ## Usage
 
-### chef-orchestrator::default
+### orchestrator::default
 
-Include `chef-orchestrator` in your node's `run_list`:
+Include `orchestrator` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[chef-orchestrator::default]"
+    "recipe[orchestrator::default]"
   ]
 }
 ```
