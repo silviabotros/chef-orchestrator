@@ -1,3 +1,9 @@
+# 1.2.0
+Added minitests
+
+# 1.1.1
+Chefspec passes and 100% coverage
+
 # 1.1.0
 Added Chefspec tests
 

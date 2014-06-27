@@ -17,17 +17,13 @@ describe 'orchestrator::_database_setup' do
     expect(chef_run).to enable_service('mysql')
     expect(chef_run).to start_service('mysql')
   end
-  it 'doesnt make orchestrator db if it finds it' do
-    stub_command("mysql -e 'show databases' | grep orchestrator").and_return(true)
-    expect(chef_run).to_not create_database('orchestrator')
-  end
-  it 'makes orchestrator if it is not found' do
+  it 'makes the orchestrator db when needed' do
     stub_command("mysql -e 'show databases' | grep orchestrator").and_return(false)
-    expect(chef_run).to run_execute('create database orchestrator')
+    expect(chef_run).to create_mysql_database('orchestrator')
   end
-  it 'created orchestrator user' do
+  it 'creates orchestrator user' do
     stub_command("mysql -e 'select user from mysql.users' | grep orchestrator").and_return(false)
-    expect(chef_run).to grant_database_user('orchestrator')
+    expect(chef_run).to grant_mysql_database_user('orchestrator')
   end
   it 'sets the root pass' do
     stub_command("mysql -u root -pfakepass")

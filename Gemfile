@@ -18,3 +18,4 @@ gem 'thor-foodcritic'
 gem 'test-kitchen'
 gem 'kitchen-vagrant'
 gem "chefspec"
+gem 'minitest-chef-handler'
