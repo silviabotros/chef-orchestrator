@@ -14,6 +14,7 @@ execute "set root pass" do
   command  "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""
   retries 5
   only_if "mysql -u root -e 'show databases'"
+  not_if { node['orchestrator']['root_db_pass'] == '' }
   subscribes :start, 'service[mysql]'
 end
 
