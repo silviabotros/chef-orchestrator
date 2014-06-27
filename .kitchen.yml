@@ -12,4 +12,5 @@ platforms:
 suites:
   - name: default
     run_list:
+    - recipe[orchestrator::default]
     attributes:
