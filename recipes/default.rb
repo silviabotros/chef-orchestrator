@@ -9,8 +9,13 @@
 include_recipe "orchestrator::_database_setup"
 case node['platform']
   when "debian", "ubuntu"
+    execute "download the .deb file" do
+      command "wget -P /tmp https://github.com/outbrain/orchestrator/releases/download/v1.0/orchestrator_1.0_amd64.deb"
+    end
     execute "install from .deb" do
-      command "sudo dpkg -i https://github.com/outbrain/orchestrator/releases/download/v1.0/orchestrator_1.0_amd64.deb"
+      command "dpkg -i orchestrator_1.0_amd64.deb "
+      cwd "/tmp"
+      not_if "dpkg -l orchestrator"
     end
   when "redhat", "centos", "fedora" 
     execute "install from rpm" do
