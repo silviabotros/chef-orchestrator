@@ -21,7 +21,7 @@ end
 gem_package 'mysql'
 
 service 'mysql' do
-  action :start
+  action [:enable, :start]
 end
 
 include_recipe 'database'

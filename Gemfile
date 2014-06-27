@@ -17,4 +17,4 @@ gem 'berkshelf'
 gem 'thor-foodcritic'
 gem 'test-kitchen'
 gem 'kitchen-vagrant'
-gem "chefspec", "1.0.0"
+gem "chefspec"
