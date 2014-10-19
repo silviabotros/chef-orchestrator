@@ -1,3 +1,8 @@
+# 1.3.0
+Refactored installation into a package recipe
+Made the version an attribute
+Use the service resource to manage Orchestrator (Thanks Shlomi for adding the init script)
+
 # 1.2.0
 Added minitests
 
