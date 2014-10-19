@@ -1,6 +1,6 @@
 name             'orchestrator'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Silvia Botros'
+maintainer_email 'silvia.botros@sendgrid.com'
 license          'All rights reserved'
 description      'Installs/Configures chef-orchestrator'
 long_description 'Installs/Configures chef-orchestrator'
