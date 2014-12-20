@@ -1,7 +1,7 @@
 include_attribute 'percona'
 default['percona']['skip_configure'] = true
 default['percona']['skip_passwords'] = true
-default['orchestrator']['package']['version'] = '1.1.18'
+default['orchestrator']['package']['version'] = '1.2.10'
 default['orchestrator']['root_db_pass'] = ''
 default['orchestrator']['remote_user'] = 'orchestrator'
 default['orchestrator']['remote_pass'] = 'fakepass'
@@ -16,3 +16,4 @@ default['orchestrator']['audit_page_size'] = 20
 default['orchestrator']['slave_start_post_wait'] = 1000
 default['orchestrator']['http_auth_user'] = ''
 default['orchestrator']['http_auth_pass'] = ''
+default['orchestrator']['read_only'] = true

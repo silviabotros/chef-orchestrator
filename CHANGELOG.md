@@ -1,3 +1,9 @@
+# 1.3.1
+GA release 1.2.10 is the default version now
+Set Orchestrator to read only by default
+Use local template variables in the config file 
+Moved the minitest file location to match more recent versions of chef-minitest
+
 # 1.3.0
 Refactored installation into a package recipe
 Made the version an attribute
