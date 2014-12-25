@@ -22,6 +22,6 @@ describe 'orchestrator::default' do
 
   it 'install from rpm' do
     stub_command('rpm qa | grep orchestrator')
-    expect(chef_run).to_not run_execute('sudo rpm -i https://github.com/outbrain/orchestrator/releases/download/v1.0/orchestrator-1.0-1.x86_64.rpm')
+    expect(chef_run).to_not run_execute('rpm -i https://github.com/outbrain/orchestrator/releases/download/v1.0/orchestrator-1.2.10.x86_64.rpm')
   end
 end

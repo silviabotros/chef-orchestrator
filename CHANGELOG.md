@@ -1,3 +1,7 @@
+# 1.3.2
+Set a default auth method and actually set a default user and password
+Add the auth method to the config template
+
 # 1.3.1
 GA release 1.2.10 is the default version now
 Set Orchestrator to read only by default

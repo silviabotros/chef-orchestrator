@@ -32,7 +32,7 @@ when "debian", "ubuntu"
   end
 when "redhat", "centos", "fedora" 
   execute "install from rpm" do
-    command "sudo rpm -i https://github.com/outbrain/orchestrator/releases/download/v#{node['orchestrator']['package']['version']}/orchestrator-#{node['orchestrator']['package']['version']}-1.x86_64.rpm"
+    command "rpm -i https://github.com/outbrain/orchestrator/releases/download/v#{node['orchestrator']['package']['version']}/orchestrator-#{node['orchestrator']['package']['version']}-1.x86_64.rpm"
     action :run
     not_if "rpm -qa | grep orchestrator-#{node['orchestrator']['package']['version']}-1"
   end
