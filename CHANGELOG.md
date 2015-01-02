@@ -1,3 +1,6 @@
+# 1.3.3
+Add ReaadOnly to the config template
+
 # 1.3.2
 Set a default auth method and actually set a default user and password
 Add the auth method to the config template

@@ -35,7 +35,8 @@ template "/etc/orchestrator.conf.json" do
     :slave_start_post_wait => node['orchestrator']['slave_start_post_wait'],
     :http_auth_method => node['orchestrator']['http_auth_method'],
     :http_auth_user => node['orchestrator']['http_auth_user'],
-    :http_auth_pass => node['orchestrator']['http_auth_pass']
+    :http_auth_pass => node['orchestrator']['http_auth_pass'],
+    :read_only => node['orchestrator']['read_only']
   })
 end
 
