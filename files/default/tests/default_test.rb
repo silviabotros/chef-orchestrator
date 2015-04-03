@@ -11,9 +11,9 @@ describe_recipe 'orchestrator::default' do
   include Minitest::Chef::Context
   include Minitest::Chef::Resources
 
-  describe "runs orchestrator" do
+  describe 'runs orchestrator' do
     it 'is running mysql' do
-      service("mysql").must_be_running
+      service('mysql').must_be_running
     end
     it 'has an orchestrator db' do
       assert_sh('mysql -e "show databases" | grep orchestrator')
@@ -22,7 +22,12 @@ describe_recipe 'orchestrator::default' do
       assert_sh('mysql -e "select user from mysql.user" | grep orchestrator')
     end
     it 'installs orchestrator' do
+      skip if node['orchestrator']['cli_only']
       package('orchestrator').must_be_installed
+    end
+    it 'installs just the CLI package' do
+      skip unless node['orchestrator']['cli_only']
+      package('orchestrator-cli').must_be_installed
     end
     it 'creates the cfg file' do
       file('/etc/orchestrator.conf.json').must_exist

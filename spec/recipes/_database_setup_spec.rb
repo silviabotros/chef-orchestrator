@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe 'orchestrator::_database_setup' do
-  let (:chef_run) {
+  let (:chef_run) do
     ChefSpec::Runner.new do |node|
       node.set['orchestrator']['root_db_pass'] = 'fakepass'
     end.converge(described_recipe)
-  }
+  end
   before do
-    stub_command("rpm -qa | grep Percona-Server-shared-56").and_return(true)
+    stub_command('rpm -qa | grep Percona-Server-shared-56').and_return(true)
     stub_command("mysql -u root -e 'show databases'").and_return(true)
   end
   it 'installs mysql gem' do
@@ -26,7 +26,7 @@ describe 'orchestrator::_database_setup' do
     expect(chef_run).to grant_mysql_database_user('orchestrator')
   end
   it 'sets the root pass' do
-    stub_command("mysql -u root -pfakepass")
-    expect(chef_run).to run_execute("set root pass")
+    stub_command('mysql -u root -pfakepass')
+    expect(chef_run).to run_execute('set root pass')
   end
 end

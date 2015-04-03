@@ -1,3 +1,8 @@
+# 1.4.0
+Add a new CLI only recipe installation
+Set some version constraints to the upstream dependencies
+Use supermarket for the cookbook API
+
 # 1.3.3
 Add ReaadOnly to the config template
 

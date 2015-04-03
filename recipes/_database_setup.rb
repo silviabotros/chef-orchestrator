@@ -17,11 +17,11 @@
 # limitations under the License.
 #
 
-include_recipe "percona::server"
-include_recipe "percona::client"
+include_recipe 'percona::server'
+include_recipe 'percona::client'
 
-execute "set root pass" do
-  command  "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""
+execute 'set root pass' do
+  command "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""
   retries 5
   only_if "mysql -u root -e 'show databases'"
   not_if { node['orchestrator']['root_db_pass'] == '' }
@@ -36,10 +36,10 @@ end
 
 include_recipe 'database'
 mysql_connection_info = {
-  :host => 'localhost', 
-  :port => 3306,
-  :username => "root",
-  :password => node['orchestrator']['root_db_pass']
+  host: 'localhost',
+  port: 3306,
+  username: 'root',
+  password: node['orchestrator']['root_db_pass']
 }
 
 mysql_database 'orchestrator' do
@@ -55,4 +55,3 @@ mysql_database_user node['orchestrator']['orchestrator_db_user']  do
   privileges [:all]
   action :grant
 end
-
