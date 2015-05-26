@@ -18,3 +18,4 @@ default['orchestrator']['http_auth_method'] = 'Basic'
 default['orchestrator']['http_auth_user'] = 'admin'
 default['orchestrator']['http_auth_pass'] = 'secret'
 default['orchestrator']['read_only'] = true
+default['orchestrator']['hostname_resolve_method'] = '@@hostname'

@@ -35,7 +35,8 @@ template '/etc/orchestrator.conf.json' do
             http_auth_method: node['orchestrator']['http_auth_method'],
             http_auth_user: node['orchestrator']['http_auth_user'],
             http_auth_pass: node['orchestrator']['http_auth_pass'],
-            read_only: node['orchestrator']['read_only'])
+            read_only: node['orchestrator']['read_only'],
+            hostname_resolve_method: node['orchestrator']['hostname_resolve_method'])
 end
 
 file '/usr/local/orchestrator/conf/orchestrator.conf.json' do

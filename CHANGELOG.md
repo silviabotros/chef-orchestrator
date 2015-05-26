@@ -1,3 +1,6 @@
+# 1.4.1
+Add new config attribute for HostnameResolveMethod
+
 # 1.4.0
 Add a new CLI only recipe installation
 Set some version constraints to the upstream dependencies
