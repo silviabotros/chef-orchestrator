@@ -18,39 +18,6 @@
 #
 
 include_recipe 'orchestrator::_database_setup'
-case node['platform']
-when 'debian', 'ubuntu'
-  execute 'download the .deb file' do
-    command "wget -P /tmp https://github.com/outbrain/orchestrator/releases/download/v#{node['orchestrator']['package']['version']}/orchestrator_#{node['orchestrator']['package']['version']}_amd64.deb"
-    action :run
-  end
-  execute 'install from .deb' do
-    command "dpkg -i orchestrator_#{node['orchestrator']['package']['version']}_amd64.deb "
-    cwd '/tmp'
-    action :run
-    not_if 'dpkg -l orchestrator'
-  end
-  if node['orchestrator']['install_cli']
-    execute 'download cli rpm' do
-      command "wget -P /tmp https://github.com/outbrain/orchestrator/releases/download/v#{node['orchestrator']['package']['version']}/orchestrator-cli_#{node['orchestrator']['package']['version']}_amd64.deb"
-      action :run
-    end
-    execute 'install cli from .deb' do
-      command "dpkg -i orchestrator-cli_#{node['orchestrator']['package']['version']}_amd64.deb "
-      cwd '/tmp'
-      action :run
-      not_if 'dpkg -l orchestrator-cli'
-    end
-  end
-when 'redhat', 'centos', 'fedora'
-  execute 'install from rpm' do
-    command "rpm -Uvh https://github.com/outbrain/orchestrator/releases/download/v#{node['orchestrator']['package']['version']}/orchestrator-#{node['orchestrator']['package']['version']}-1.x86_64.rpm"
-    action :run
-    not_if "rpm -qa | grep orchestrator-#{node['orchestrator']['package']['version']}-1"
-  end
-  execute 'install CLI from rpm' do
-    command "rpm -Uvh https://github.com/outbrain/orchestrator/releases/download/v#{node['orchestrator']['package']['version']}/orchestrator-cli-#{node['orchestrator']['package']['version']}-1.x86_64.rpm"
-    action :run
-    not_if "rpm -qa | grep orchestrator-#{node['orchestrator']['package']['version']}-1"
-  end
+package 'orchestrator' do
+  action :upgrade
 end

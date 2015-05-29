@@ -4,9 +4,10 @@ maintainer_email 'silvia.botros@sendgrid.com'
 license 'All rights reserved'
 description 'Installs/Configures chef-orchestrator'
 long_description 'Installs/Configures chef-orchestrator'
-version '1.4.1'
+version '1.5.0'
 
 depends 'yum'
+depends 'packagecloud'
 depends 'database', '~> 2.0'
 depends 'percona', '~> 0.15.0'
 
