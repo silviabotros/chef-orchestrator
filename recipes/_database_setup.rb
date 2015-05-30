@@ -20,7 +20,7 @@
 include_recipe 'percona::server'
 include_recipe 'percona::client'
 
-execute 'set root pass' do
+execute 'set root pass' do  #~FC037
   command "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""
   retries 5
   only_if "mysql -u root -e 'show databases'"

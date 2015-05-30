@@ -26,21 +26,21 @@ include_recipe 'orchestrator::_package'
 template '/etc/orchestrator.conf.json' do
   source 'orchestrator.json.conf.erb'
   variables(remote_user: node['orchestrator']['remote_user'],
-            remote_pass: node['orchestrator']['remote_pass'],
-            orchestrator_db_user: node['orchestrator']['orchestrator_db_user'],
-            orchestrator_db_pass: node['orchestrator']['orchestrator_db_pass'],
-            discover_slave_hosts: node['orchestrator']['discover_slave_hosts'],
-            poll_sec: node['orchestrator']['poll_sec'],
-            forget_instances_hrs: node['orchestrator']['forget_instances_hrs'],
-            reasonable_repl: node['orchestrator']['reasonable_repl'],
-            maintenance_lag_secs: node['orchestrator']['maintenance_lag_secs'],
-            audit_page_size: node['orchestrator']['audit_page_size'],
-            slave_start_post_wait: node['orchestrator']['slave_start_post_wait'],
-            http_auth_method: node['orchestrator']['http_auth_method'],
-            http_auth_user: node['orchestrator']['http_auth_user'],
-            http_auth_pass: node['orchestrator']['http_auth_pass'],
-            read_only: node['orchestrator']['read_only'],
-            hostname_resolve_method: node['orchestrator']['hostname_resolve_method'])
+    remote_pass: node['orchestrator']['remote_pass'],
+    orchestrator_db_user: node['orchestrator']['orchestrator_db_user'],
+    orchestrator_db_pass: node['orchestrator']['orchestrator_db_pass'],
+    discover_slave_hosts: node['orchestrator']['discover_slave_hosts'],
+    poll_sec: node['orchestrator']['poll_sec'],
+    forget_instances_hrs: node['orchestrator']['forget_instances_hrs'],
+    reasonable_repl: node['orchestrator']['reasonable_repl'],
+    maintenance_lag_secs: node['orchestrator']['maintenance_lag_secs'],
+    audit_page_size: node['orchestrator']['audit_page_size'],
+    slave_start_post_wait: node['orchestrator']['slave_start_post_wait'],
+    http_auth_method: node['orchestrator']['http_auth_method'],
+    http_auth_user: node['orchestrator']['http_auth_user'],
+    http_auth_pass: node['orchestrator']['http_auth_pass'],
+    read_only: node['orchestrator']['read_only'],
+    hostname_resolve_method: node['orchestrator']['hostname_resolve_method'])
 end
 
 file '/usr/local/orchestrator/conf/orchestrator.conf.json' do
