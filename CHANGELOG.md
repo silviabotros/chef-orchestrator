@@ -1,6 +1,7 @@
 # 1.5.0
 Install orchestrator using package cloud repo (Thanks Shlomi for setting that up)
 Remove spec tests. Sticking with minitests only
+Update the kitchen platforms because it isn't 2012 anymore
 
 # 1.4.1
 Add new config attribute for HostnameResolveMethod

@@ -17,9 +17,7 @@
 # limitations under the License.
 #
 
-packagecloud_repo "shlomi-noach/orchestrator" do
-  type "rpm"
-end
+packagecloud_repo "shlomi-noach/orchestrator"
 
 include_recipe 'orchestrator::_package'
 
