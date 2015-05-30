@@ -1,5 +1,6 @@
 # 1.5.0
 Install orchestrator using package cloud repo (Thanks Shlomi for setting that up)
+Remove spec tests. Sticking with minitests only
 
 # 1.4.1
 Add new config attribute for HostnameResolveMethod
