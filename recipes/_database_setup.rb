@@ -28,6 +28,13 @@ execute 'set root pass' do  #~FC037
   subscribes :start, 'service[mysql]'
 end
 
+case node['platform']
+when 'debian', 'ubuntu'
+  package 'build-essential'
+when 'redhat', 'centos', 'fedora'
+  package 'gcc'
+end
+
 gem_package 'mysql'
 
 service 'mysql' do
