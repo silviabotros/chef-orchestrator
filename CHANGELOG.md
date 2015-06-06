@@ -1,3 +1,7 @@
+# 2.0.0
+Move to a single hash for all config values
+Use ruby to create the config from the hash
+
 # 1.5.0
 Install orchestrator using package cloud repo (Thanks Shlomi for setting that up)
 Remove spec tests. Sticking with minitests only

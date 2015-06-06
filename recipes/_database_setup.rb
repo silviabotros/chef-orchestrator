@@ -54,9 +54,9 @@ mysql_database 'orchestrator' do
   action :create
 end
 
-mysql_database_user node['orchestrator']['orchestrator_db_user']  do
+mysql_database_user node['orchestrator']['config']['MySQLOrchestratorUser']  do
   connection mysql_connection_info
-  password node['orchestrator']['orchestrator_db_pass']
+  password node['orchestrator']['config']['MySQLOrchestratorPassword']
   host 'localhost'
   database_name 'orchestrator'
   privileges [:all]
