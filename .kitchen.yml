@@ -10,8 +10,10 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-14.10
   - name: centos-6.6
+    driver_config:
+      box: sendgrid_centos-6_chef-11
+      box_url: http://repo.sjc1.sendgrid.net/images/vagrant/metadata/sendgrid_centos-6_chef-11.json
 
 suites:
   - name: default
