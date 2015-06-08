@@ -2,7 +2,7 @@ include_attribute 'percona'
 default['percona']['skip_configure'] = true
 default['percona']['skip_passwords'] = true
 default['orchestrator']['package']['version'] = '1.2.10'
-default['orchestrator']['config']['listenAddress'] = ':3000'
+default['orchestrator']['config']['ListenAddress'] = ':3000'
 default['orchestrator']['root_db_pass'] = ''
 default['orchestrator']['config']['MySQLOrchestratorDatabase'] = 'orchestrator'
 default['orchestrator']['config']['MySQLTopologyUser'] = 'orchestrator'
