@@ -1,3 +1,6 @@
+# 2.0.1
+Fix spelling mistake in ListenAddress
+
 # 2.0.0
 Move to a single hash for all config values
 Use ruby to create the config from the hash
