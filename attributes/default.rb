@@ -17,7 +17,7 @@ default['orchestrator']['config']['ReasonableMaintenanceReplicationLagSeconds'] 
 default['orchestrator']['config']['AuditPageSize'] = 20
 default['orchestrator']['config']['SlaveStartPostWaitMilliseconds'] = 1000
 default['orchestrator']['config']['AuthenticationMethod'] = 'Basic'
-default['orchestrator']['config']['HTTPAuthUser'] = 'admin'
-default['orchestrator']['config']['HTTPAuthPassword'] = 'secret'
+default['orchestrator']['config']['HTTPAuthUser'] = ''
+default['orchestrator']['config']['HTTPAuthPassword'] = ''
 default['orchestrator']['config']['ReadOnly'] = true
 default['orchestrator']['config']['HostnameResolveMethod'] = '@@hostname'
