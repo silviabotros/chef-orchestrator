@@ -1,3 +1,6 @@
+# 2.0.2
+Remove hardcoded credentials for basic auth 
+
 # 2.0.1
 Fix spelling mistake in ListenAddress
 
