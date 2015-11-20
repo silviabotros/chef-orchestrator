@@ -4,7 +4,7 @@ maintainer_email 'silvia.botros@sendgrid.com'
 license 'All rights reserved'
 description 'Installs/Configures chef-orchestrator'
 long_description 'Installs/Configures chef-orchestrator'
-version IO.read(File.join(File.dirname(__FILE__), 'version_wf'))
+version IO.read(File.join(File.dirname(__FILE__), 'version_wf')) || "testing"
 
 depends 'yum'
 depends 'packagecloud'
