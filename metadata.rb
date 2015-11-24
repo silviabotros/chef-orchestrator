@@ -19,4 +19,3 @@ depends 'percona', '~> 0.15.0'
 
 supports 'centos'
 supports 'ubuntu'
-
