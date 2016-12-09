@@ -1,5 +1,5 @@
 # chef-orchestrator-cookbook
- This cookbook sets up and runs mysql-orchestror (https://github.com/outbrain/orchestrator/) which is a project by Outbrain. 
+ This cookbook sets up and runs mysql-orchestror (https://github.com/github/orchestrator/). 
 
 ## Presumptions:
 - The backend mysql for orchestrator is going to run on the same server as orchestrator itself
