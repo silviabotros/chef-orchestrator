@@ -17,7 +17,7 @@
 # limitations under the License.
 
 
-packagecloud_repo "shlomi-noach/orchestrator"
+packagecloud_repo "github/orchestrator"
 
 include_recipe 'orchestrator::_package'
 
