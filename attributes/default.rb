@@ -23,5 +23,8 @@ default['orchestrator']['config']['ReasonableMaintenanceReplicationLagSeconds'] 
 default['orchestrator']['config']['ReasonableReplicationLagSeconds'] = 10
 default['orchestrator']['config']['SlaveStartPostWaitMilliseconds'] = 1000
 default['orchestrator']['config']['UnseenInstanceForgetHours'] = 240
-default['orchestrator']['package']['version'] = '2.1.5-1'
 default['orchestrator']['root_db_pass'] = ''
+
+# leaving this set to 'nil' will set the package install to always "upgrade" to the latest version available.
+# set this to a specific version in your wrapper-cookbook if you need a specific one.
+default['orchestrator']['package']['version'] = nil

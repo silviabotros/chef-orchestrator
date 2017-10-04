@@ -25,14 +25,18 @@ Tested with
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['orchestrator']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['orchestrator']['version']</tt></td>
+    <td>nil | string</td>
+    <td>version to install, nil provides latest (and will upgrade)</td>
+    <td><tt>nil</tt></td>
   </tr>
 </table>
 
 ## Usage
+
+### Installation
+Starting in version _2.1.0_, the orchestator cookbook now respects the `version` attribute. If set to `nil` (the default), the cookbook will perform the same steps as previous versions--always upgrade to the latest version available via the repos available on a node.
+Setting this attribute to a specific package version will result in that version being installed.
 
 ### orchestrator::default
 
