@@ -17,22 +17,17 @@
 # limitations under the License.
 #
 
+
+include_recipe 'build-essential'
 include_recipe 'percona::server'
 include_recipe 'percona::client'
 
-execute 'set root pass' do  #~FC037
+execute 'set root pass' do # ~FC037
   command "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""
   retries 5
   only_if "mysql -u root -e 'show databases'"
   not_if { node['orchestrator']['root_db_pass'] == '' }
   subscribes :start, 'service[mysql]'
-end
-
-case node['platform']
-when 'debian', 'ubuntu'
-  package 'build-essential'
-when 'redhat', 'centos', 'fedora'
-  package 'gcc'
 end
 
 gem_package 'mysql'
@@ -54,7 +49,7 @@ mysql_database 'orchestrator' do
   action :create
 end
 
-mysql_database_user node['orchestrator']['config']['MySQLOrchestratorUser']  do
+mysql_database_user node['orchestrator']['config']['MySQLOrchestratorUser'] do
   connection mysql_connection_info
   password node['orchestrator']['config']['MySQLOrchestratorPassword']
   host 'localhost'
