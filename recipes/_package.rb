@@ -19,5 +19,6 @@
 
 include_recipe 'orchestrator::_database_setup'
 package 'orchestrator' do
-  action :upgrade
+  version node['orchestrator']['package']['version']
+  action :install
 end

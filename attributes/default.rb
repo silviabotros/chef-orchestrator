@@ -23,5 +23,5 @@ default['orchestrator']['config']['ReasonableMaintenanceReplicationLagSeconds'] 
 default['orchestrator']['config']['ReasonableReplicationLagSeconds'] = 10
 default['orchestrator']['config']['SlaveStartPostWaitMilliseconds'] = 1000
 default['orchestrator']['config']['UnseenInstanceForgetHours'] = 240
-default['orchestrator']['package']['version'] = '1.2.10'
+default['orchestrator']['package']['version'] = '2.1.5-1'
 default['orchestrator']['root_db_pass'] = ''
