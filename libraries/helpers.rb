@@ -1,4 +1,4 @@
 
 def centos?
-  node['platform'] == 'centos' ? true : false
+  node['platform'] == 'centos'
 end
