@@ -10,6 +10,7 @@
 * add `Centos 7` support
 * add `travis-ci` config, Gemfile, etc
 * allow for orchestrator package source/checksum to be defined and overridden
+* replace `minitest` with `inspec`x
 
 ## 2.0.2
 Orchestrator has officially moved to Github
