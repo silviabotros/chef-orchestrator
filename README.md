@@ -20,9 +20,10 @@ This cookbook sets up and runs [mysql-orchestror](https://github.com/github/orch
 ## Attributes
 
 | Key | Type | Description | Default |
-| ['orchestrator']['package']['version']</tt> | nil | string | version to install, nil provides latest (and will upgrade) |
-| ['orchestrator']['package']['url']</tt> | nil | string | URL to download the RPM from |
-| ['orchestrator']['package']['checksum']</tt> | nil | string | Checksum for the file provided by URL |
+| --- | ---- | ----------- | ------- |
+| ['orchestrator']['package']['version'] | nil | string | version to install, nil provides latest (and will upgrade) |
+| ['orchestrator']['package']['url'] | nil | string | URL to download the RPM from |
+| ['orchestrator']['package']['checksum'] | nil | string | Checksum for the file provided by URL |
 
 ## Usage
 
