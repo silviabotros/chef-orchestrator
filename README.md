@@ -1,5 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/silviabotros/chef-orchestrator/badges/gpa.svg)](https://codeclimate.com/github/silviabotros/chef-orchestrator)
-[![Issue Count](https://codeclimate.com/github/silviabotros/chef-orchestrator/badges/issue_count.svg)](https://codeclimate.com/github/silviabotros/chef-orchestrator)
+[![Build Status](https://travis-ci.org/silviabotros/chef-orchestrator.svg?branch=master)](https://travis-ci.org/silviabotros/chef-orchestrator)
 
 # chef-orchestrator-cookbook
  This cookbook sets up and runs mysql-orchestror (https://github.com/github/orchestrator/). 
