@@ -1,6 +1,6 @@
 # orchestrator
 
-## 3.0.0
+## 2.1.0
 * use build-essential to install gcc,make, etc
 * rubocop (.rubocop.yml added and files corrected)
 * use generic centos-6 VM to test on, not internal sendgrid images

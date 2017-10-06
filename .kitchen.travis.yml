@@ -1,9 +1,4 @@
 ---
-
-# run the following two commands to test with docker.
-# export KITCHEN_YAML=.kitchen.yml
-# export KITCHEN_LOCAL_YAML=.kitchen.travis.yml
-
 driver:
   name: proxy
   host: localhost

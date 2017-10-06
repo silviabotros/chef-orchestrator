@@ -25,9 +25,21 @@ Tested with
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['orchestrator']['version']</tt></td>
+    <td><tt>['orchestrator']['package']['version']</tt></td>
     <td>nil | string</td>
     <td>version to install, nil provides latest (and will upgrade)</td>
+    <td><tt>nil</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['orchestrator']['package']['url']</tt></td>
+    <td>nil | string</td>
+    <td>URL to download the RPM from</td>
+    <td><tt>nil</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['orchestrator']['package']['checksum']</tt></td>
+    <td>nil | string</td>
+    <td>Checksum for the file provided by URL</td>
     <td><tt>nil</tt></td>
   </tr>
 </table>
@@ -36,7 +48,7 @@ Tested with
 
 ### Installation
 Starting in version _2.1.0_, the orchestator cookbook now respects the `version` attribute. If set to `nil` (the default), the cookbook will perform the same steps as previous versions--always upgrade to the latest version available via the repos available on a node.
-Setting this attribute to a specific package version will result in that version being installed.
+Setting this attribute to a specific package version will result in that version being installed. If you want to install the package from an internal source, you can also specify the url and optional checksum to download the orchetrator package.
 
 ### orchestrator::default
 
