@@ -5,6 +5,7 @@ AllCops:
     - script/**/*
     - vendor/**/*
     - cookbooks/**/*
+    - bundle/**/*
 
 ClassLength:
   Enabled: false

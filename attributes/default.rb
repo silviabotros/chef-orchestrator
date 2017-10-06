@@ -32,4 +32,8 @@ default['orchestrator']['root_db_pass'] = 'snakeoil'
 
 # leaving this set to 'nil' will set the package install to always "upgrade" to the latest version available.
 # set this to a specific version in your wrapper-cookbook if you need a specific one.
-default['orchestrator']['package']['version'] = nil
+default['orchestrator']['package'] = {
+  version: nil,
+  url: nil,
+  checksum: nil
+}
