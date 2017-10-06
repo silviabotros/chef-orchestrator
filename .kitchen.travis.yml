@@ -1,19 +1,17 @@
 ---
 driver:
-  name: vagrant
-  customize:
-    memory: 1024
-  network:
-  - ['forwarded_port', {guest: 3000, host: 3000, auto_correct: true}]
+  name: proxy
+  host: localhost
+  reset_command: "exit 0"
+  port: <%= ENV["machine_port"] %>
+  username: <%= ENV["machine_user"] %>
+  password: <%= ENV["machine_pass"] %>
 
 provisioner:
   name: chef_zero
-  require_chef_omnibus: true
-  always_update_cookbooks: true
 
 verifier:
   name: inspec
-  sudo: true
 
 platforms:
   - name: centos-6.6
@@ -25,6 +23,10 @@ platforms:
           checksum: 392a2d6b3d5cea85053dfad3b6c2dceae838674d56f267046c854e4d1ceee2a3
   - name: centos-7.2
   - name: debian-8.9
+    attributes:
+      orchestrator:
+        package:
+          version: ~
 
 suites:
   - name: default
