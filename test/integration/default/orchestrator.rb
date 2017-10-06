@@ -33,7 +33,4 @@ control 'orchestator config' do
     its(['AuthenticationMethod']) { should eq 'Basic' }
   end
 
-  describe service('orchestrator') do
-    it { should be_runnnig }
-  end
 end
