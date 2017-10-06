@@ -29,7 +29,13 @@ include_recipe 'build-essential'
 include_recipe 'percona::server'
 include_recipe 'percona::client'
 
-package %w(ruby ruby-devel rubygems binutils) if node['platform_family'] == 'rhel'
+package case node['platform_family']
+        when 'rhel'
+          %w(ruby ruby-devel rubygems binutils)
+        when 'debian'
+          %w(ruby ruby-dev libperconaserverclient18.1-dev)
+        end
+
 
 execute 'set root pass' do # ~FC037
   command "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""
@@ -40,7 +46,7 @@ execute 'set root pass' do # ~FC037
 end
 
 gem_package 'mysql2' do
-  options '-- --with-mysql-dir=/usr' if node['platform_family'] == 'rhel'
+  options '-- --with-mysql-dir=/usr' # if node['platform_family'] == 'rhel'
 end
 
 # for the database cookbook
