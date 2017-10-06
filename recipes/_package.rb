@@ -18,6 +18,7 @@
 #
 
 include_recipe 'orchestrator::_database_setup'
+
 package 'orchestrator' do
   version node['orchestrator']['package']['version'] unless node['orchestrator']['package']['version'].nil?
   action node['orchestrator']['package']['version'].nil? ? :upgrade : :install

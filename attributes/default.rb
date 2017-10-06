@@ -5,6 +5,8 @@ default['percona']['skip_passwords'] = true
 default['percona']['apt']['key'] = '9334A25F8507EFA5'
 default['percona']['apt']['keyserver'] = 'hkp://keyserver.ubuntu.com'
 default['percona']['apt']['uri'] = 'https://repo.percona.com/apt'
+default["percona"]["use_chef_vault"] = false
+
 # keyserver
 # Orchestrator
 default['orchestrator']['path'] = '/usr/local/orchestrator'

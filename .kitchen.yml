@@ -21,7 +21,7 @@ platforms:
       orchestrator:
         package:
           version: 2.1.5-1
-  - name: centos-7.11
+  - name: centos-7.2
   - name: debian-8.9
 
 suites:
