@@ -15,7 +15,7 @@ begin
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new do |task|
     task.fail_on_error = true
-    task.options = %w[--display-cop-names]
+    task.options = %w(--display-cop-names -c .rubocop.yml)
   end
 rescue LoadError
   warn '>>>>> Rubocop gem not loaded, omitting tasks'
