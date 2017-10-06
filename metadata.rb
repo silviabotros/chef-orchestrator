@@ -1,7 +1,7 @@
 name 'orchestrator'
 maintainer 'Silvia Botros'
 maintainer_email 'silvia.botros@sendgrid.com'
-license 'Apache 2.0'
+license 'Apache-2.0'
 description 'Installs/Configures chef-orchestrator'
 long_description 'Installs/Configures chef-orchestrator'
 source_url 'https://github.com/silviabotros/chef-orchestrator'
