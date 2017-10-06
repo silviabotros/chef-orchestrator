@@ -1,11 +1,15 @@
 # orchestrator
 
-## 2.1.0
+## 3.0.0
 * use build-essential to install gcc,make, etc
 * rubocop (.rubocop.yml added and files corrected)
 * use generic centos-6 VM to test on, not internal sendgrid images
 * alphabetize attributes
 * replace ruby_block with file resource with sensitive
+* add `Debian 8` support
+* add `Centos 7` support
+* add `travis-ci` config, Gemfile, etc
+* allow for orchestrator package source/checksum to be defined and overridden
 
 ## 2.0.2
 Orchestrator has officially moved to Github
