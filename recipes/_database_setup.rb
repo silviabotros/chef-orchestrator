@@ -36,7 +36,6 @@ package case node['platform_family']
           %w(ruby ruby-dev libperconaserverclient18.1-dev)
         end
 
-
 execute 'set root pass' do # ~FC037
   command "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""
   retries 5
