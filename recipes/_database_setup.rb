@@ -21,7 +21,7 @@ if node['platform_family'] == 'debian'
   include_recipe 'apt'
   execute 'add percona apt key' do
     command 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9334A25F8507EFA5 && apt-get update'
-    not_if "apt-key list | grep -i percona"
+    not_if 'apt-key list | grep -i percona'
   end
 end
 
@@ -29,7 +29,7 @@ include_recipe 'build-essential'
 include_recipe 'percona::server'
 include_recipe 'percona::client'
 
-package %w( ruby ruby-devel rubygems binutils) if node['platform_family'] == 'rhel'
+package %w(ruby ruby-devel rubygems binutils) if node['platform_family'] == 'rhel'
 
 execute 'set root pass' do # ~FC037
   command "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""

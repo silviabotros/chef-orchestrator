@@ -5,7 +5,7 @@ control 'mysql is running' do
   end
 end
 
-sql = mysql_session('root', "snakeoil")
+sql = mysql_session('root', 'snakeoil')
 
 control 'database exists' do
   describe sql.query('show databases like \'orchestrator\';') do
