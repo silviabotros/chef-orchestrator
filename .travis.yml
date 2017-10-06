@@ -4,8 +4,7 @@ env:
     - machine_user=travis
     - machine_pass=travis
     - machine_port=22
-    - KITCHEN_YAML=.kitchen.yml
-    - KITCHEN_LOCAL_YAML=.kitchen.travis.yml
+    - KITCHEN_YAML=.kitchen.travis.yml
 
 rvm:
   - 2.3.4
