@@ -17,10 +17,26 @@
 # limitations under the License.
 #
 
+if node['platform_family'] == 'debian'
+  include_recipe 'apt'
+  execute 'add percona apt key' do
+    command 'apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9334A25F8507EFA5 && apt-get update'
+    not_if 'apt-key list | grep -i percona'
+  end
+end
+
+include_recipe 'build-essential'
 include_recipe 'percona::server'
 include_recipe 'percona::client'
 
-execute 'set root pass' do  #~FC037
+package case node['platform_family']
+        when 'rhel'
+          %w(ruby ruby-devel rubygems binutils)
+        when 'debian'
+          %w(ruby ruby-dev libperconaserverclient18.1-dev)
+        end
+
+execute 'set root pass' do # ~FC037
   command "mysqladmin -u root password \"#{node['orchestrator']['root_db_pass']}\""
   retries 5
   only_if "mysql -u root -e 'show databases'"
@@ -28,20 +44,17 @@ execute 'set root pass' do  #~FC037
   subscribes :start, 'service[mysql]'
 end
 
-case node['platform']
-when 'debian', 'ubuntu'
-  package 'build-essential'
-when 'redhat', 'centos', 'fedora'
-  package 'gcc'
+gem_package 'mysql2' do
+  options '-- --with-mysql-dir=/usr' # if node['platform_family'] == 'rhel'
 end
 
-gem_package 'mysql'
+# for the database cookbook
+chef_gem 'mysql2'
 
 service 'mysql' do
   action [:enable, :start]
 end
 
-include_recipe 'database'
 mysql_connection_info = {
   host: 'localhost',
   port: 3306,
@@ -54,7 +67,7 @@ mysql_database 'orchestrator' do
   action :create
 end
 
-mysql_database_user node['orchestrator']['config']['MySQLOrchestratorUser']  do
+mysql_database_user node['orchestrator']['config']['MySQLOrchestratorUser'] do
   connection mysql_connection_info
   password node['orchestrator']['config']['MySQLOrchestratorPassword']
   host 'localhost'

@@ -18,6 +18,21 @@
 #
 
 include_recipe 'orchestrator::_database_setup'
+
+local_rpm = nil
+
+if centos? && !node['orchestrator']['package']['url'].nil?
+  local_rpm = File.join(Chef::Config['file_cache_path'], 'orchestrator.rpm')
+  remote_file local_rpm do
+    source node['orchestrator']['package']['url']
+    checksum node['orchestrator']['package']['checksum']
+    action :create_if_missing if node['orchestrator']['package']['checksum'].nil?
+    notifies :install, 'package[orchestrator]', :immediately
+  end
+end
+
 package 'orchestrator' do
-  action :upgrade
+  source local_rpm if centos? && !local_rpm.nil?
+  version node['orchestrator']['package']['version'] if centos? && !node['orchestrator']['package']['version'].nil?
+  action node['orchestrator']['package']['version'].nil? ? :upgrade : :install
 end

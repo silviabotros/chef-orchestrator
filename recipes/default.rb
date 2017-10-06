@@ -16,25 +16,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-packagecloud_repo "github/orchestrator"
+packagecloud_repo 'github/orchestrator'
 
 include_recipe 'orchestrator::_package'
 
 chef_gem 'json'
 
-ruby_block 'create the config file from hash' do
-  block do
-    File.open("/etc/orchestrator.conf.json", "w") do |f|
-      f.write(JSON.pretty_generate(node['orchestrator']['config']))
-    end
-  end
+file '/etc/orchestrator.conf.json' do
+  sensitive true
+  content JSON.pretty_generate(node['orchestrator']['config'])
 end
 
-file '/usr/local/orchestrator/conf/orchestrator.conf.json' do
+# clean up config from legacy config path
+file File.join(node['orchestrator']['path'], 'conf', 'orchestrator.conf.json') do
   action :delete
 end
 
 service 'orchestrator' do
+  provider Provider::Service::Redhat if centos?
   action :start
 end
