@@ -1,7 +1,3 @@
-source :chef_server
+source 'https://supermarket.chef.io'
 
 metadata
-
-group :integration do
-  cookbook 'minitest-handler', git: 'https://github.com/btm/minitest-handler-cookbook.git'
-end

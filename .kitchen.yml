@@ -8,13 +8,23 @@ driver:
 
 provisioner:
   name: chef_zero
+  require_chef_omnibus: true
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+  sudo: true
 
 platforms:
   - name: centos-6.6
+    attributes:
+      orchestrator:
+        package:
+          version: 2.1.5-1
+  - name: centos-7.11
+  - name: debian-8.9
 
 suites:
   - name: default
     run_list:
     - recipe[orchestrator::default]
-    - recipe[minitest-handler]
-    attributes:
