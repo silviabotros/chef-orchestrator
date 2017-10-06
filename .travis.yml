@@ -2,6 +2,6 @@ language: ruby
 bundler_args: --without development
 script: "bundle exec rake build"
 rvm:
-  - 2.3.4p301
+  - 2.3.4
 gemfile:
   - Gemfile
