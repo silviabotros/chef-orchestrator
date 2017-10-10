@@ -19,6 +19,7 @@ platforms:
   - name: centos-6.6
     attributes:
       orchestrator:
+        configure_database: true
         package:
           version: 2.1.5-1
           url: 'https://github.com/kplimack/orchestrator-rpm/raw/master/orchestrator-2.1.5-1.x86_64.rpm'
