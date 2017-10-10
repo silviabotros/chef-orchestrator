@@ -33,11 +33,11 @@ package 'ruby'
 
 package case node['platform_family']
         when 'rhel'
-          unless node['languages']['ruby']['ruby_bin'] == "/usr/bin/ruby" &&
-                 node['languages']['ruby']['version'].to_i >= 2
-            %w(ruby-devel rubygems binutils)
-          else
+          if node['languages']['ruby']['ruby_bin'] == '/usr/bin/ruby' &&
+             node['languages']['ruby']['version'].to_i >= 2
             []
+          else
+            %w(ruby-devel rubygems binutils)
           end
         when 'debian'
           %w(ruby-dev libperconaserverclient18.1-dev)
