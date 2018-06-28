@@ -25,7 +25,7 @@ if node['platform_family'] == 'debian'
   end
 end
 
-include_recipe 'build-essential'
+include_recipe 'build-essential::default'
 include_recipe 'percona::server'
 include_recipe 'percona::client'
 

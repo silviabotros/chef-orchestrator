@@ -25,6 +25,7 @@ chef_gem 'json'
 file '/etc/orchestrator.conf.json' do
   sensitive true
   content JSON.pretty_generate(node['orchestrator']['config'])
+  notifies :reload, 'service[orchestrator]'
 end
 
 # clean up config from legacy config path
