@@ -1,5 +1,8 @@
 # orchestrator
 
+## 2.1.1
+Make orchestrator reload config upon changes
+
 ## 2.1.0
 * use build-essential to install gcc,make, etc
 * rubocop (.rubocop.yml added and files corrected)
