@@ -1,5 +1,9 @@
 # orchestrator
 
+## 2.1.1
+* `rubygems`, `ruby-devel` and `binutils` are only needed on cent/ruby1.x
+* dont configure the database unless told to.
+
 ## 2.1.0
 * use build-essential to install gcc,make, etc
 * rubocop (.rubocop.yml added and files corrected)

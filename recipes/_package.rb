@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'orchestrator::_database_setup'
+include_recipe 'orchestrator::_database_setup' if node['orchestrator']['configure_database']
 
 local_rpm = nil
 

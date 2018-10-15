@@ -29,11 +29,18 @@ include_recipe 'build-essential'
 include_recipe 'percona::server'
 include_recipe 'percona::client'
 
+package 'ruby'
+
 package case node['platform_family']
         when 'rhel'
-          %w(ruby ruby-devel rubygems binutils)
+          if node['languages']['ruby']['ruby_bin'] == '/usr/bin/ruby' &&
+             node['languages']['ruby']['version'].to_i >= 2
+            []
+          else
+            %w(ruby-devel rubygems binutils)
+          end
         when 'debian'
-          %w(ruby ruby-dev libperconaserverclient18.1-dev)
+          %w(ruby-dev libperconaserverclient18.1-dev)
         end
 
 execute 'set root pass' do # ~FC037
